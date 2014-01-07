@@ -23,7 +23,7 @@
       var url = makeUrl(textToSay, options.lang);
       var cacheKey = generateHash(textToSay);
       if ($.toastMaker.enabled) {
-        if (textToSay.length <= $.toastMaker.maxLength) {
+        if (textToSay.length > 0 && textToSay.length <= $.toastMaker.maxLength) {
           playToast(url);
         }
       }
