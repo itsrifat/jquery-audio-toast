@@ -18,7 +18,7 @@
   
   $.toastMaker.cache = {};
   $.toastMaker.makeToast = function (textToSay, options) {
-    init = function () {
+    var init = function () {
       options = $.extend({}, $.toastMaker.makeToast.defaults, options);
       var url = makeUrl(textToSay, options.lang);
       var cacheKey = generateHash(textToSay);
@@ -34,11 +34,11 @@
 
       }
     };
-    makeUrl = function (text, lang) {
+    var makeUrl = function (text, lang) {
       var uri = "tl=" + options.lang + "&" + "q=" + encodeURI(text);
       return options.baseUrl + uri;
     };
-    playToast = function (url) {
+    var playToast = function (url) {
       var cacheKey = generateHash(textToSay);
       var audio;
       if ($.toastMaker.cache[cacheKey] != undefined) {
@@ -59,7 +59,7 @@
       });
     }
     //http://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript-jquery
-    generateHash = function (str) {
+    var generateHash = function (str) {
       var hash = 0, i, char;
       if (str.length == 0) return hash;
       for (i = 0, l = str.length; i < l; i++) {
@@ -69,7 +69,7 @@
       }
       return hash.toString();
     };
-    isFunction = function (argument) {
+    var isFunction = function (argument) {
       if (typeof argument == 'function') {
         return true;
       }
