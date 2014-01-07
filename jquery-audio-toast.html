@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Audio Toast Test</title>
+    <meta charset="utf-8">
+    <script type="application/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="application/javascript" src="jquery-audio-toast.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"/>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div id="audio-toast-test-area" class="col-md-offset-4 col-md-4">
+          <h2>Jquery Audio Toast Demo</h2>
+
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="textToSay">Text to make Toast with</label>
+
+              <div class="">
+                <input type="text" class="form-control" id="textToSay" placeholder="Write Something and Hit Say it!"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" id="sayIt" class="btn btn-primary">Toast it!</button>
+                <button type="button" id="disableToast" class="btn btn-danger">Disable Toasting</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="textToSay">Console</label>
+
+              <div id="audio-toast-console-area" class="alert alert-info"></div>
+            </div>
+          </form>
+
+          <h2>Listen to More Toasts by clicking</h2>
+
+          <div data-lang="en" class="alert alert-success aToast">I am talking in english</div>
+          <div data-lang="fr" class="alert alert-success aToast">Je parle en frech</div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+
+        </div>
+      </div>
+    </div>
+
+    <script type="application/javascript">
+      $(document).ready(function () {
+        $('#sayIt').on('click', function (e) {
+          $.audioToast($('#textToSay').val(), {
+            lang:'en',
+            done:function () {
+              $('#audio-toast-console-area').html('Done Playing ' + $('#textToSay').val());
+            }
+          });
+        });
+
+        $('#disableToast').on('click', function (e) {
+          $.audioToast.setEnabled(!$.audioToast.getEnabled());
+          $('#disableToast').toggleClass('btn-success');
+          if ($.audioToast.getEnabled()) {
+            $('#audio-toast-console-area').html('Toasting Enabled in this web page');
+            $('#disableToast').html('Disable Toasting');
+          }
+          else {
+            $('#audio-toast-console-area').html('Toasting Disabled in this web page');
+            $('#disableToast').html('Enable Toasting');
+          }
+        });
+
+        $('.aToast').on('click', function (e) {
+          $.audioToast($(this).html(), {
+            lang:$(this).data('lang')
+          });
+        });
+
+        $.audioToast.ifDisable = function () {
+          $('#audio-toast-console-area').html('Can not Play. Tosting is Disabled in this web page');
+        };
+
+    });
+  </script>
+  </body>
+</html>
