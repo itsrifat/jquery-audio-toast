@@ -1,10 +1,10 @@
 /**
  *
- * Author: Moinul Hossain Rifat (moinul.hossain@csebuet.com)
+ * Author: Moinul Hossain Rifat (moinul.hossain@csebuet.org)
  * Date: 01/06/2014
- * A jquery plugin to play adio message in webpage using google translate's api
+ * A jquery plugin to play audio message in web page using google translate's api
  * The plugin template reference: https://github.com/shichuan/javascript-patterns/blob/master/jquery-plugin-patterns/namespaced-starter.html
- * Google tramslate has a restrington on string length which is 100, so this plugin can not play messages longer than 100 chars
+ * Google translate has a restriction on string length which is 100, so this plugin can not play messages longer than 100 chars
  *
  */
 ;
