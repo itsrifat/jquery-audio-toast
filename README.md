@@ -26,7 +26,7 @@ How to use
   //to enable/disable globally in the webpage
   $.audioToast.setEnabled(!$.audioToast.getEnabled());
   
-  // Function to e called if toasting is disabled in webpage
+  // Function to be called if toasting is disabled in webpage
   $.audioToast.ifDisable = function () {
     console.log('Audio Tosting is Disabled in this web page');
   };
