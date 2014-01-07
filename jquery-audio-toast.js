@@ -1,9 +1,11 @@
 /**
+*
 * Author: Moinul Hossain Rifat (moinul.hossain@csebuet.com)
 * Date: 01/06/2014
 * A jquery plugin to play adio message in webpage using google translate's api
 * The plugin template reference: https://github.com/shichuan/javascript-patterns/blob/master/jquery-plugin-patterns/namespaced-starter.html
 * Google tramslate has a restrington on string length which is 100, so this plugin can not play messages longer than 100 chars
+*
 */
 ;
 (function ($, window, document, undefined) {
@@ -19,8 +21,16 @@
             options = $.extend({}, $.toastMaker.makeToast.defaults, options);
             var url = makeUrl(textToSay, options.lang);
             var cacheKey = generateHash(textToSay);
-            if ($.toastMaker.enabled && textToSay.length <= $.toastMaker.maxLength) {
+            if ($.toastMaker.enabled) {
+              if(textToSay.length <= $.toastMaker.maxLength){
                 playToast(url);
+              }
+            }
+            else{
+              if(isFunction(options.ifDisable)){
+                options.ifDisable();
+              }
+            
             }
         };
         makeUrl = function (text, lang) {
@@ -42,7 +52,7 @@
             }
             audio.play();
             audio.addEventListener('ended', function (e) {
-                if (typeof options.done == 'function') {
+                if (isFunction(options.done)) {
                     options.done();
                 }
             });
@@ -57,8 +67,15 @@
                 hash |= 0;
             }
             return hash.toString();
-            ;
         };
+        isFunction = function(argument){
+          if (typeof argument == 'function') {
+            return true;
+          }
+          return false;
+        
+        };
+        
         init();
     };
 
