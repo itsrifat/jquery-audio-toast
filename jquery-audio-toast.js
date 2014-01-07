@@ -14,7 +14,8 @@
   }
   $.toastMaker.enabled = true;
   $.toastMaker.maxLength = 100;
-
+  
+  
   $.toastMaker.cache = {};
   $.toastMaker.makeToast = function (textToSay, options) {
     init = function () {
@@ -27,8 +28,8 @@
         }
       }
       else {
-        if (isFunction(options.ifDisable)) {
-          options.ifDisable();
+        if (isFunction($.audioToast.ifDisable)) {
+          $.audioToast.ifDisable();
         }
 
       }
@@ -95,5 +96,5 @@
   $.audioToast.getEnabled = function () {
     return $.toastMaker.enabled;
   };
-
+  
 })(jQuery, window, document);
