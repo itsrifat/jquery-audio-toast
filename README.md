@@ -1,7 +1,7 @@
 jquery-audio-toast
 ------------------
 
-A simple jqury plugin to play audio toast messages in web page. It uses Google Translates's internal API(used in translate.google.com, which is publicly available) to convert the text into specch (I'm not sure if it's legal to use, I didn't find any TOS doc by googling). This API suports string of length upto 100 char. So message longer than 100 charecter won't play. See [jquery-audio-toast.html](jquery-audio-toast.html) for demo
+A simple jqury plugin to play audio toast messages in web page. It uses Google Translates's internal API(used in translate.google.com, which is publicly available) to convert the text into specch (I'm not sure if it's legal to use, I didn't find any TOS doc by googling). This API suports string of length upto 100 char. So message longer than 100 charecter won't play. See [jquery-audio-toast.html](jquery-audio-toast.html) for demo. Google TTS returns an mp3 file (see [here ](http://goo.gl/2KEMHc) for support of mp3 in browsers).
 
 How to use
 ----------
