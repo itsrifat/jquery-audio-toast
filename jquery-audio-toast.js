@@ -1,6 +1,6 @@
 /**
  *
- * Author: Moinul Hossain Rifat (moinul.hossain@csebuet.org)
+ * Author: Moinul Hossain Rifat (hossain@nevada.unr.edu)
  * Date: 01/06/2014
  * A jquery plugin to play audio message in web page using google translate's api
  * The plugin template reference: https://github.com/shichuan/javascript-patterns/blob/master/jquery-plugin-patterns/namespaced-starter.html
